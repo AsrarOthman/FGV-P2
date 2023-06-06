@@ -1,0 +1,186 @@
+// import React from "react";
+import Sidebar from "../Components/Sidebar";
+import { useState } from "react";
+import Nav from "../Components/Nav";
+import "../Components/Sidebar.css";
+import "./Page.css";
+import React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import styled from "@emotion/styled";
+
+// yarn add @mui/material dan yarn add @material-ui/core
+
+function createData(
+  name: string,
+  calories: number,
+  fat: number,
+  carbs: number,
+  protein: number
+) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+  createData("Eclair", 262, 16.0, 24, 6.0),
+  createData("Cupcake", 305, 3.7, 67, 4.3),
+  createData("Gingerbread", 356, 16.0, 49, 3.9),
+];
+
+function Report() {
+  const [toggle, setToggle] = useState(true);
+  const Toggle = () => {
+    setToggle(!toggle);
+  };
+  return (
+    <div className=" main-content">
+      <div>
+        <div className=" ">
+          <div className="row">
+            {toggle && (
+              <div className="col-4 col-md-2  min-vh-100 position-fixed gborder ">
+                <Sidebar />
+              </div>
+            )}
+            {toggle && <div className="col-4 col-md-2  "></div>}
+            <div className="topm col">
+              <div style={{}} className="d-flex bd">
+                <div className="">
+                  <h4 className=" bd p-2 ml2">Laporan</h4>
+                </div>
+                <div className="">
+                  <h4
+                    style={{ position: "absolute", right: "0px" }}
+                    className=" bd p-2 mr2"
+                  >
+                    Seed Laboratory
+                  </h4>
+                </div>
+              </div>
+
+              <div className="  margtop">
+                <Nav Toggle={Toggle} />
+                {/* ___________Start code page______________ */}
+
+                <div className="">
+                  <div className="card shadow rounded m-3">
+                    <div className="card-body">
+                      <h5 className="card-title">
+                        Laporan bagi ativiti di Seed Lab
+                      </h5>
+                      <p className="card-text">
+                        Sila pilih laporan yang dikehendaki :-{" "}
+                      </p>
+                      <div className="d-flex" style={{ gap: "5%" }}>
+                        <div>
+                          <select defaultValue="Option 1">
+                            <option value="Option 1">Option 1</option>
+                            <option value="Option 2">Option 2</option>
+                            <option value="Option 3">Option 3</option>
+                          </select>
+                        </div>
+                        <div>
+                          <select defaultValue="Option 1">
+                            <option value="Option 1">Option 1</option>
+                            <option value="Option 2">Option 2</option>
+                            <option value="Option 3">Option 3</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <a href="#" className="mt2 btn btn-primary">
+                        Jana Dokumen
+                      </a>
+                    </div>
+                  </div>
+                  <div className="card shadow rounded m-3">
+                    <div className="card-body">
+                      <h5 className="card-title">Laporan</h5>
+                      <div className="d-flex flex-row bd">
+                        <div>
+                          <p className="card-text">
+                            Laporan bagi penerimaan Tandan
+                          </p>
+                        </div>
+                        <div>
+                          <a
+                            href="#"
+                            style={{ position: "absolute", right: "0px" }}
+                            className="btn btn-primary mr2"
+                          >
+                            Download
+                          </a>
+                        </div>
+                      </div>
+                      <div>
+                        <TableContainer component={Paper}>
+                          <Table
+                            sx={{ minWidth: 650 }}
+                            aria-label="simple table"
+                          >
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Dessert (100g serving)</TableCell>
+                                <TableCell align="right">Calories</TableCell>
+                                <TableCell align="right">
+                                  Fat&nbsp;(g)
+                                </TableCell>
+                                <TableCell align="right">
+                                  Carbs&nbsp;(g)
+                                </TableCell>
+                                <TableCell align="right">
+                                  Protein&nbsp;(g)
+                                </TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableBody>
+                              {rows.map((row) => (
+                                <TableRow
+                                  key={row.name}
+                                  sx={{
+                                    "&:last-child td, &:last-child th": {
+                                      border: 0,
+                                    },
+                                  }}
+                                >
+                                  <TableCell component="th" scope="row">
+                                    {row.name}
+                                  </TableCell>
+                                  <TableCell align="right">
+                                    {row.calories}
+                                  </TableCell>
+                                  <TableCell align="right">{row.fat}</TableCell>
+                                  <TableCell align="right">
+                                    {row.carbs}
+                                  </TableCell>
+                                  <TableCell align="right">
+                                    {row.protein}
+                                  </TableCell>
+                                </TableRow>
+                              ))}
+                            </TableBody>
+                          </Table>
+                        </TableContainer>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* ___________End code page________________ */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Report;

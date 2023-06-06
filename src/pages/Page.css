@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.main-content {
+  background-color: rgb(244, 244, 244);
+  height: 100vh;
+  width: 100%;
+}
+.gborder {
+  background-color: rgb(170, 184, 182);
+}
+
+/* .bd {
+  border: 2px solid green;
+} */
+.h3 {
+  height: 130px;
+}
+.box-s {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  background-color: white;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 1px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 2px 0px, rgba(0, 0, 0, 0.1) 0px 4px 4px 0px,
+    rgba(0, 0, 0, 0.1) 0px 8px 8px 0px, rgba(0, 0, 0, 0.1) 0px 16px 16px 0px;
+}
+.topm {
+  margin-top: 70px;
+}
+.ml2 {
+  margin-left: 20px;
+}
+.mr2 {
+  margin-right: 20px;
+}
+.mt2 {
+  margin-top: 35px;
+}
+.m4 {
+  margin: 40px;
+}
+
+.listbox {
+  position: relative;
+  left: 10px;
+  background-color: white;
+  height: 300px;
+  width: 94.5%;
+}
+
+.bgimg {
+  background: url(https://media.istockphoto.com/id/478426692/id/foto/bibit-kelapa-sawit-dengan-latar-belakang-putih.jpg?s=612x612&w=0&k=20&c=ZLYP5P-v2srSMYPSYcWwYV7UBQAMRsqUHlPP1mlVW4A=);
+  background-repeat: no-repeat;
+  background-size: 100px 100px;
+  background-position-x: right;
+}
